@@ -13,6 +13,7 @@ int search(int a[], int key, int p, int n)
         return i;
     }
 
+
 int main()
 {
     int n;
@@ -27,13 +28,15 @@ int main()
     int t;
     cout<<"Enter the target"<<endl;
     cin>>t;
-    for(int i=0; i<n; i++)
+    for(int i=0; i<n-1; i++)
     {
-        int mid=search(a,t-a[i],i,n);
-        if(mid!=-1)
+        for(int j=i+1; j<n; j++)
         {
-            cout<<"Elements of index number "<<i<<" and "<<mid<<" add to "<<t<<endl;
-            break;
+            if((a[i]+a[j])==t)
+            {
+                cout<<"Adding element of index number "<<i<<" and "<<j<<" add up to "<<t<<endl;
+                return 0;
+            }
         }
     }
     return 0;
